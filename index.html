@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>강아지 품종 테스트 - 나랑 찰떡인 강아지는?</title>
+<meta name="description" content="질문 12개로 알아보는 나랑 찰떡인 강아지 품종. 말티즈, 푸들, 포메라니안, 웰시코기, 시바견, 진돗개, 골든 리트리버, 비숑 프리제 중 내 강아지는?">
+<meta property="og:type" content="website">
+<meta property="og:title" content="나랑 찰떡인 강아지 품종 테스트 🐕">
+<meta property="og:description" content="질문 12개, 1분이면 끝! 8견 중 나와 닮은 강아지는?">
+<meta property="og:image" content="https://chaesorablue.github.io/dog-match/og.png">
+<meta property="og:url" content="https://chaesorablue.github.io/dog-match/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://chaesorablue.github.io/dog-match/og.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Gowun+Dodum&display=swap">
+<style>
+/* 산책길 잔디밭: 크림 바탕에 결과 강아지 털색이 번짐. 질문은 엄지로 누르기 쉬운 큰 버튼 두 개 */
+:root{
+  --bg1:#fff3dc; --bg2:#ffd9b8; --ink:#3a2a20; --muted:#6f5a4b; --card:#fffdf8e6;
+  --pick:#e8663d; --pick-dark:#bf4c28; --pick-ink:#fff;
+  --f-display:"Jua","Gowun Dodum",system-ui,sans-serif;
+  --f-body:"Gowun Dodum","Noto Sans KR",system-ui,"Malgun Gothic",sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{font-family:var(--f-body);color:var(--ink);background:linear-gradient(160deg,var(--bg1),var(--bg2));background-attachment:fixed;
+  min-height:100vh;padding:max(16px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(24px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}
+.wrap{max-width:520px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+.card{background:var(--card);border-radius:24px;padding:24px 20px;box-shadow:0 10px 30px #3a2a2014}
+h1,h2{font-family:var(--f-display);font-weight:400;margin:0;text-wrap:balance}
+button{font:inherit;cursor:pointer}
+button:focus-visible,a:focus-visible{outline:3px solid var(--pick);outline-offset:3px}
+
+.intro{text-align:center;display:flex;flex-direction:column;gap:14px;align-items:center}
+.mosaic{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;width:100%}
+.mosaic img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:14px;display:block;background:#f3e3d0}
+.intro h1{font-size:clamp(32px,8.6vw,44px);line-height:1.15}
+.intro p{margin:0;color:var(--muted);font-size:16px;line-height:1.6}
+.cta{background:var(--pick);color:var(--pick-ink);border:0;border-radius:999px;padding:16px 36px;font-family:var(--f-display);font-size:22px;box-shadow:0 6px 0 var(--pick-dark)}
+.cta:active{transform:translateY(3px);box-shadow:0 3px 0 var(--pick-dark)}
+.meta{font-size:13px;color:var(--muted)}
+
+.bar{height:10px;background:#fff;border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--pick);border-radius:99px;transition:width .3s}
+.qn{font-family:var(--f-display);color:var(--pick-dark);font-size:18px;margin-top:14px}
+.q h2{font-size:clamp(22px,6vw,27px);line-height:1.35;margin:6px 0 18px}
+.opts{display:flex;flex-direction:column;gap:12px}
+.opt{text-align:left;background:#fff;border:2px solid #fff;border-radius:16px;padding:16px 18px;font-size:17px;line-height:1.45;color:var(--ink);box-shadow:0 3px 0 #3a2a201a;transition:border-color .15s,transform .1s}
+.opt:hover{border-color:var(--pick)}
+.opt:active{transform:scale(.98)}
+.back{background:none;border:0;color:var(--muted);font-size:14px;padding:8px 0 0;align-self:flex-start}
+
+.res{text-align:center;display:flex;flex-direction:column;gap:10px;align-items:center}
+.res .lab{font-size:14px;color:var(--muted)}
+.res .ph{width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:20px;display:block;background:#f3e3d0}
+.res .ai{font-size:12px;color:var(--muted)}
+.res h1{font-size:clamp(34px,9.6vw,46px)}
+.res .one{font-size:18px;line-height:1.55;margin:0;max-width:26em}
+.tags{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.tags span{background:#fff;border-radius:99px;padding:4px 12px;font-size:14px}
+.sec{display:flex;flex-direction:column}
+.sec h3{font-family:var(--f-display);font-weight:400;font-size:20px;margin:0 0 8px}
+.sec ul{margin:0;padding-left:20px;line-height:1.7;font-size:16px}
+.sec p{margin:0;line-height:1.7;font-size:16px}
+.match{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.m{background:#fff;border-radius:16px;padding:10px 10px 14px;text-align:center;display:flex;flex-direction:column;gap:6px}
+.m img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px;display:block;background:#f3e3d0}
+.m .k{font-size:13px;color:var(--muted)}
+.m b{font-family:var(--f-display);font-weight:400;font-size:18px}
+.share{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.share button{border:0;border-radius:14px;padding:14px;font-size:16px;font-weight:700;text-align:center;font-family:var(--f-body)}
+.b1{background:var(--pick-dark);color:#fff}
+.b2{background:#fff;color:var(--ink)}
+.b3{grid-column:1/-1;background:var(--ink);color:#fff}
+.toast{min-height:20px;text-align:center;font-size:14px;color:var(--muted);margin-top:10px}
+.more{display:flex;flex-direction:column;gap:10px}
+.more a{display:block;background:#fff;border-radius:14px;padding:14px 16px;text-decoration:none;color:var(--ink);font-size:15px;line-height:1.5}
+.more a b{display:block;font-size:16px}
+.ad{border:2px dashed #d9b89a;background:#fffaf2!important}
+.ad small{color:var(--muted)}
+.dex{display:flex;flex-direction:column;gap:10px}
+.dex button{display:flex;gap:12px;align-items:center;background:#fff;border:0;border-radius:14px;padding:10px 12px;text-align:left;color:inherit;width:100%}
+.dex img{width:60px;height:60px;object-fit:cover;border-radius:12px;flex:none;background:#f3e3d0}
+.dex b{font-family:var(--f-display);font-weight:400;font-size:18px}
+.dex small{display:block;font-size:14px;color:var(--muted)}
+.foot{text-align:center;font-size:12px;color:var(--muted);line-height:1.6}
+.foot a{color:inherit}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <section class="card intro" id="v-intro">
+    <div class="mosaic" id="mosaic" aria-hidden="true"></div>
+    <h1>나랑 찰떡인<br>강아지 품종 테스트</h1>
+    <p>댕댕이와 산다면 내 옆엔 어떤 강아지가 어울릴까?<br>질문 12개로 찾는 <b>8견 중 나의 단짝</b>.</p>
+    <button class="cta" id="start" type="button">테스트 시작</button>
+    <div class="meta">1분이면 끝나요 · 로그인·개인정보 없음</div>
+  </section>
+
+  <section class="card q" id="v-q" hidden>
+    <div class="bar" aria-hidden="true"><i id="prog"></i></div>
+    <div class="qn" id="qn"></div>
+    <h2 id="qt"></h2>
+    <div class="opts" id="opts"></div>
+    <button class="back" id="back" type="button">← 이전 질문</button>
+  </section>
+
+  <div id="v-res" hidden style="display:flex;flex-direction:column;gap:16px">
+    <section class="card res">
+      <div class="lab" id="r-lab">나랑 찰떡인 강아지는</div>
+      <img class="ph" id="r-img" alt="" width="640" height="640">
+      <div class="ai">※ AI로 생성한 이미지예요</div>
+      <h1 id="r-name"></h1>
+      <p class="one" id="r-one"></p>
+      <div class="tags" id="r-tags"></div>
+    </section>
+    <section class="card sec">
+      <h3>우리가 닮은 점</h3>
+      <ul id="r-list"></ul>
+    </section>
+    <section class="card sec">
+      <h3>잘 맞는 댕 · 조심할 댕</h3>
+      <div class="match" id="r-match"></div>
+    </section>
+    <section class="card sec">
+      <h3>오늘의 댕 한마디</h3>
+      <p id="r-tip"></p>
+    </section>
+    <section class="card sec">
+      <h3>진짜 보호자 메모</h3>
+      <p id="r-care"></p>
+    </section>
+    <section class="card">
+      <div class="share">
+        <button class="b1" id="sh" type="button">결과 공유하기</button>
+        <button class="b2" id="cp" type="button">링크 복사</button>
+        <button class="b2" id="img" type="button">결과 카드 저장</button>
+        <button class="b2" id="again" type="button">다시 하기</button>
+        <button class="b3" id="all" type="button">8견 전부 보기</button>
+      </div>
+      <div class="toast" id="toast" role="status"></div>
+    </section>
+    <section class="card more">
+      <a href="https://blog.naver.com/jjun0306" target="_blank" rel="noopener"><b>Jo프로의 일상 블로그</b>경제·생활 정보부터 AI 영상까지, 테스트 만든 사람의 블로그</a>
+      <a class="ad" href="https://higgsfield.ai?fpr=junbyoung-cf39f6" target="_blank" rel="noopener sponsored"><b>#광고 우리 강아지 사진을 AI 영상으로?</b>사진 한 장으로 AI 영상을 만드는 도구 Higgsfield<br><small>제휴 링크입니다. 가입·구매 시 수수료를 받을 수 있습니다.</small></a>
+    </section>
+  </div>
+
+  <section class="card sec" id="v-all" hidden>
+    <h3>강아지 8견 도감</h3>
+    <div class="dex" id="all-list"></div>
+    <button class="back" id="all-back" type="button">← 돌아가기</button>
+  </section>
+
+  <div class="foot">재미로 보는 테스트예요. 답변은 어디에도 저장되지 않아요.<br>실제 강아지 성격은 품종보다 개체 차이가 커요. 사진은 AI로 만들었어요.<br>만든 사람 <a href="https://chaesorablue.github.io/" target="_blank" rel="noopener">Jo프로</a></div>
+</div>
+
+<canvas id="cv" width="1080" height="1350" hidden></canvas>
+
+<script>
+/* 세 축: 에너지(E 활발 / C 차분), 거리(T 껌딱지 / I 독립), 취향(N 새로움 / R 루틴). 각 축 첫 질문은 1.5점이라 동점이 없음 */
+const Q = [
+  {ax:0,t:"알람 없이 눈뜬 토요일 아침, 제일 먼저 하는 일은?",a:"창문 열고 “오늘 어디 가지?” 바로 검색",b:"다시 눈 감고 10분만 더… 아니 1시간만 더"},
+  {ax:1,t:"단톡방에 내가 보낸 메시지에 아무도 답이 없다.",a:"“다들 바빠?” 하나 더 보내고 기다린다",b:"신경 안 씀, 읽으면 언젠가 답하겠지"},
+  {ax:2,t:"편의점에서 처음 보는 과자가 나왔다.",a:"일단 장바구니에! 맛없어도 경험이지",b:"늘 먹던 그 과자로 손이 간다"},
+  {ax:0,t:"날씨 좋은 평일 저녁, 약속이 없다.",a:"동네 한 바퀴라도 걸어야 하루가 끝난다",b:"씻고 누워서 좋아하는 영상 보는 게 최고"},
+  {ax:1,t:"친구가 “잠깐 우리 집 올래?” 한다.",a:"좋지! 과일이라도 사 들고 바로 간다",b:"반갑긴 한데, 오늘은 내 집이 좋다"},
+  {ax:2,t:"자주 가던 카페가 문을 닫았다.",a:"오히려 좋아, 새 단골집 찾으러 탐방",b:"아쉬워서 비슷한 분위기 카페를 한참 찾는다"},
+  {ax:0,t:"놀이공원에 갔다. 내가 먼저 향하는 곳은?",a:"제일 무서운 놀이기구 줄부터 선다",b:"퍼레이드 자리 잡고 간식 먹으며 구경"},
+  {ax:1,t:"좋은 일이 생겼다! 나는…",a:"바로 전화해서 누군가에게 자랑해야 한다",b:"혼자 조용히 실실 웃으며 기분을 즐긴다"},
+  {ax:2,t:"새 학기·새 부서 첫날, 자리를 고른다면?",a:"처음 보는 사람 옆자리도 괜찮아",b:"아는 사람 옆, 아니면 늘 앉던 쪽 자리"},
+  {ax:0,t:"휴가가 일주일 생겼다.",a:"하루도 빈틈없이 여기저기 다녀온다",b:"반은 쉬고 반은 느긋하게 동네 산책"},
+  {ax:1,t:"길에서 아는 사람을 멀리서 발견했다.",a:"손 흔들며 먼저 다가가 인사한다",b:"눈 마주치면 인사, 아니면 조용히 지나간다"},
+  {ax:2,t:"핸드폰 배경화면은?",a:"기분 따라 자주 바꾼다",b:"몇 년째 같은 사진, 바꿀 이유가 없다"},
+];
+const T = {
+  ETN:{k:"corgi",n:"웰시코기",c:["#ffe3b3","#f4a15d"],one:"짧은 다리로 통통 튀어 다니는 분위기 메이커. 어디서든 웃음 담당이에요.",tags:["인싸력","웃음담당","에너자이저"],
+    l:["처음 보는 사람과도 금방 친해져요.","좋아하는 사람 곁에서 리액션이 두 배가 돼요.","새로운 곳에 가면 눈부터 반짝여요."],
+    tip:"웰시코기처럼 엉덩이 들썩이는 하루! 오늘 만난 사람에게 먼저 웃으며 인사해 보세요.",
+    care:"허리가 길고 다리가 짧아 계단·소파 점프는 줄여 주세요. 식탐이 많아 체중 관리가 중요해요."},
+  ETR:{k:"retriever",n:"골든 리트리버",c:["#fbe6b8","#d9a34f"],one:"누구에게나 다정한 햇살 같은 친구. 한결같은 마음으로 곁을 지켜요.",tags:["다정함","한결같음","햇살캐"],
+    l:["몸 쓰는 걸 좋아하고 체력이 좋아요.","내 사람을 챙기는 게 제일 행복해요.","익숙한 사람들과 익숙한 하루가 최고예요."],
+    tip:"늘 남부터 챙기는 리트리버, 오늘은 나를 위한 산책 30분을 꼭 챙겨 보세요.",
+    care:"대형견이라 매일 충분한 산책과 넓은 공간이 필요해요. 털이 많이 빠지고 고관절 건강도 살펴 주세요."},
+  EIN:{k:"shiba",n:"시바견",c:["#ffe0c2","#d98945"],one:"내 길은 내가 정하는 자유로운 모험가. 쿨해 보여도 은근 정이 많아요.",tags:["마이웨이","쿨함","자유영혼"],
+    l:["하고 싶은 건 해 봐야 직성이 풀려요.","혼자 있는 시간도 즐길 줄 알아요.","남들 눈치보다 내 기분이 먼저예요."],
+    tip:"시바처럼 내 맘대로인 날도 필요해요. 이번 주엔 혼자 가 보고 싶던 곳 하나를 다녀오세요.",
+    care:"독립심이 강하고 고집이 있어 어릴 때부터 꾸준한 교육이 중요해요. 털갈이 시즌엔 빗질을 자주 해 주세요."},
+  EIR:{k:"jindo",n:"진돗개",c:["#f1ece0","#b9a47c"],one:"한번 정하면 끝까지 가는 의리파. 말수는 적어도 누구보다 든든해요.",tags:["의리","든든함","책임감"],
+    l:["몸을 움직이며 하는 일에 강해요.","아무하고나 친하진 않지만 내 사람은 확실히 지켜요.","정해진 규칙과 약속을 잘 지켜요."],
+    tip:"늘 묵묵히 지키는 진돗개, 오늘은 고마운 사람에게 먼저 한마디 건네 보세요.",
+    care:"활동량이 많아 매일 넉넉한 산책이 필요해요. 보호소에도 진도·진도 믹스가 많으니 입양을 먼저 알아봐 주세요."},
+  CTN:{k:"bichon",n:"비숑 프리제",c:["#fff1f4","#f2b8c6"],one:"솜사탕처럼 몽글몽글한 해피 바이러스. 옆에만 있어도 기분이 좋아져요.",tags:["해맑음","사랑둥이","몽글몽글"],
+    l:["느긋한데 웃음이 많아요.","좋아하는 사람 곁에 꼭 붙어 있고 싶어요.","새로운 놀이나 사람도 금방 반겨요."],
+    tip:"비숑처럼 해맑게! 오늘 기분 좋았던 순간 하나를 사진으로 남겨 보세요.",
+    care:"털이 잘 빠지지 않는 대신 계속 자라서 정기적인 미용과 빗질이 필요해요. 피부도 자주 살펴 주세요."},
+  CTR:{k:"maltese",n:"말티즈",c:["#f4f4ff","#c3c6ee"],one:"작지만 마음은 누구보다 큰 다정한 껌딱지. 내 사람 곁이 제일 편해요.",tags:["껌딱지","순정파","포근함"],
+    l:["시끌벅적한 곳보다 아늑한 곳이 좋아요.","좋아하는 사람과 함께라면 뭐든 괜찮아요.","늘 같은 자리, 같은 시간의 편안함을 지켜요."],
+    tip:"늘 곁을 지키는 말티즈, 오늘은 나를 위한 따뜻한 차 한 잔으로 하루를 마무리해 보세요.",
+    care:"눈물 자국과 슬개골(무릎) 건강을 자주 살펴 주세요. 혼자 있는 시간이 길면 외로움을 많이 타요."},
+  CIN:{k:"poodle",n:"푸들",c:["#f3e6da","#b98c6a"],one:"한 번 보면 다 아는 영리한 탐구자. 조용히 배우고 똑똑하게 해내요.",tags:["똑똑함","센스","탐구왕"],
+    l:["새로운 걸 배우는 재미를 알아요.","혼자서도 할 일을 척척 찾아서 해요.","작은 변화도 금방 눈치채요."],
+    tip:"푸들처럼 배우는 게 즐거운 당신, 오늘 궁금했던 것 하나를 끝까지 찾아보세요.",
+    care:"머리가 좋아 노즈워크나 간단한 훈련 놀이를 좋아해요. 곱슬 털은 정기적으로 미용해 주세요."},
+  CIR:{k:"pomeranian",n:"포메라니안",c:["#ffe9d6","#f0a36a"],one:"작은 몸에 당당함 한가득. 취향 확실하고 내 공간을 사랑하는 집콕 왕족.",tags:["당당함","취향확고","작은거인"],
+    l:["내 공간과 내 물건이 제일 소중해요.","정해진 루틴이 흐트러지는 걸 싫어해요.","작아 보여도 할 말은 또박또박 해요."],
+    tip:"당당한 포메처럼 오늘은 ‘싫어요’ 대신 ‘이게 좋아요’라고 내 취향을 말해 보세요.",
+    care:"슬개골과 기관지가 약한 편이라 목줄보다 하네스가 좋아요. 풍성한 털은 자주 빗어 주세요."},
+};
+const BEST = {ETN:"CTN",CTN:"ETN",ETR:"CTR",CTR:"ETR",EIN:"EIR",EIR:"EIN",CIN:"CIR",CIR:"CIN"};
+const WORST = {ETN:"CIR",CIR:"ETN",ETR:"CIN",CIN:"ETR",EIN:"CTR",CTR:"EIN",EIR:"CTN",CTN:"EIR"};
+const AX = [["E","C"],["T","I"],["N","R"]];
+const byK = Object.fromEntries(Object.entries(T).map(([code,v])=>[v.k,code]));
+const $ = id => document.getElementById(id);
+const pic = r => `${r.k}.jpg`;
+const URL0 = "https://chaesorablue.github.io/dog-match/";
+const BG0 = ["#fff3dc","#ffd9b8"];
+let i = 0, ans = [], cur = null, myCode = null;
+
+function show(v){ ["v-intro","v-q","v-res","v-all"].forEach(x=>$(x).hidden = x!==v); scrollTo({top:0,behavior:"smooth"}); }
+function bg(c){ const s = document.documentElement.style; s.setProperty("--bg1", c[0]); s.setProperty("--bg2", c[1]); }
+
+function ask(){
+  const q = Q[i];
+  $("prog").style.width = (i/Q.length*100)+"%";
+  $("qn").textContent = `Q${i+1} / ${Q.length}`;
+  $("qt").textContent = q.t;
+  $("opts").innerHTML = "";
+  [["a",q.a],["b",q.b]].forEach(([k,txt])=>{
+    const b = document.createElement("button"); b.className="opt"; b.type="button"; b.id=`opt-${k}`; b.textContent = txt;
+    b.onclick = () => { ans[i] = k; i++; i < Q.length ? ask() : finish(); };
+    $("opts").appendChild(b);
+  });
+  $("back").hidden = i===0;
+}
+function finish(){
+  const sc = [0,0,0];
+  Q.forEach((q,n)=>{ const w = n<3 ? 1.5 : 1; sc[q.ax] += ans[n]==="a" ? w : -w; });
+  const code = sc.map((s,n)=>AX[n][s>0?0:1]).join("");
+  myCode = code;
+  history.replaceState(null,"","#"+T[code].k);
+  result(code, "mine");
+}
+function result(code, from){
+  cur = code; const r = T[code];
+  bg(r.c);
+  $("r-lab").textContent = from==="mine" ? "나랑 찰떡인 강아지는" : from==="dex" ? "강아지 도감" : "친구랑 찰떡인 강아지는";
+  $("r-img").src = pic(r); $("r-img").alt = `${r.n} 강아지 AI 이미지`;
+  $("r-name").textContent = r.n; $("r-one").textContent = r.one;
+  $("r-tags").innerHTML = r.tags.map(t=>`<span>#${t}</span>`).join("");
+  $("r-list").innerHTML = r.l.map(t=>`<li>${t}</li>`).join("");
+  const b = T[BEST[code]], w = T[WORST[code]];
+  $("r-match").innerHTML = `<div class="m"><span class="k">찰떡궁합</span><img src="${pic(b)}" alt="" loading="lazy"><b>${b.n}</b></div><div class="m"><span class="k">조심조심</span><img src="${pic(w)}" alt="" loading="lazy"><b>${w.n}</b></div>`;
+  $("r-tip").textContent = r.tip;
+  $("r-care").textContent = r.care;
+  $("again").textContent = myCode ? "다시 하기" : "나도 해 보기";
+  show("v-res");
+}
+
+function toast(t){ $("toast").textContent = t; setTimeout(()=>{ if($("toast").textContent===t) $("toast").textContent=""; }, 2500); }
+function shareUrl(){ return URL0 + "#" + T[cur].k; }
+function shareText(){ return cur===myCode ? `나랑 찰떡인 강아지는 ${T[cur].n}! 너는 어떤 댕댕이야?` : `강아지 품종 테스트, ${T[cur].n} 나올 수 있을까? 너도 해 봐!`; }
+async function copy(){
+  try { await navigator.clipboard.writeText(shareText()+"\n"+shareUrl()); toast("링크를 복사했어요. 친구에게 붙여 넣어 보세요!"); }
+  catch(e){ prompt("이 링크를 복사하세요", shareUrl()); }
+}
+
+function wrapText(ctx, text, x, y, maxW, lh){
+  let line = "", lines = [];
+  for (const w of text.split(" ")){ const test = line ? line+" "+w : w; if (ctx.measureText(test).width > maxW && line){ lines.push(line); line = w; } else line = test; }
+  lines.push(line); lines.forEach((l,n)=>ctx.fillText(l, x, y+n*lh)); return lines.length;
+}
+function loadImg(src){ return new Promise((ok,no)=>{ const m = new Image(); m.onload = () => ok(m); m.onerror = no; m.src = src; }); }
+async function card(){
+  await document.fonts.ready;
+  const r = T[cur], cv = $("cv"), ctx = cv.getContext("2d");
+  const g = ctx.createLinearGradient(0,0,1080,1350); g.addColorStop(0,r.c[0]); g.addColorStop(1,r.c[1]);
+  ctx.fillStyle = g; ctx.fillRect(0,0,1080,1350);
+  ctx.fillStyle = "rgba(255,253,248,.92)"; ctx.beginPath(); ctx.roundRect(60,60,960,1230,56); ctx.fill();
+  ctx.textAlign = "center"; ctx.fillStyle = "#6f5a4b"; ctx.font = "40px Jua, sans-serif";
+  ctx.fillText(cur===myCode ? "나랑 찰떡인 강아지는" : "강아지 품종 테스트", 540, 140);
+  try {
+    const m = await loadImg(pic(r));
+    ctx.save(); ctx.beginPath(); ctx.roundRect(270,175,540,540,40); ctx.clip(); ctx.drawImage(m,270,175,540,540); ctx.restore();
+  } catch(e){}
+  ctx.fillStyle = "#3a2a20"; ctx.font = "92px Jua, sans-serif"; ctx.fillText(r.n, 540, 820);
+  ctx.font = "40px 'Gowun Dodum', sans-serif";
+  const n = wrapText(ctx, r.one, 540, 890, 840, 58);
+  ctx.font = "36px 'Gowun Dodum', sans-serif"; ctx.fillStyle = "#bf4c28";
+  ctx.fillText(r.tags.map(t=>"#"+t).join("  "), 540, 900 + n*58 + 24);
+  ctx.fillStyle = "#6f5a4b"; ctx.font = "36px Jua, sans-serif";
+  ctx.fillText(`찰떡궁합 ${T[BEST[cur]].n}`, 540, 1160);
+  ctx.font = "28px 'Gowun Dodum', sans-serif"; ctx.fillText("강아지 품종 테스트 · chaesorablue.github.io/dog-match", 540, 1225);
+  return new Promise(res => cv.toBlob(res, "image/png"));
+}
+async function saveImg(){
+  const blob = await card(), name = `강아지테스트_${T[cur].n}.png`;
+  const file = new File([blob], name, {type:"image/png"});
+  if (navigator.canShare && navigator.canShare({files:[file]})) {
+    try { await navigator.share({files:[file], text: shareText()+" "+shareUrl()}); return; } catch(e){ if (e.name==="AbortError") return; }
+  }
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = name; a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href), 4000); toast("결과 카드를 저장했어요.");
+}
+async function share(){
+  if (navigator.share) { try { await navigator.share({title:"강아지 품종 테스트", text:shareText(), url:shareUrl()}); return; } catch(e){ if (e.name==="AbortError") return; } }
+  copy();
+}
+function all(){
+  $("all-list").innerHTML = Object.entries(T).map(([code,r])=>
+    `<button type="button" data-code="${code}"><img src="${pic(r)}" alt="" loading="lazy"><span><b>${r.n}</b><small>${r.tags.map(t=>"#"+t).join(" ")}</small></span></button>`).join("");
+  $("all-list").querySelectorAll("button").forEach(b => b.onclick = () => {
+    const c = b.dataset.code; history.replaceState(null,"","#"+T[c].k); result(c, c===myCode ? "mine" : "dex");
+  });
+  show("v-all");
+}
+
+$("mosaic").innerHTML = Object.values(T).map(r=>`<img src="${pic(r)}" alt="">`).join("");
+$("start").onclick = () => { i = 0; ans = []; show("v-q"); ask(); };
+$("back").onclick = () => { if (i>0){ i--; ask(); } };
+$("again").onclick = () => { history.replaceState(null,"",location.pathname); bg(BG0); i=0; ans=[]; show("v-q"); ask(); };
+$("cp").onclick = copy; $("sh").onclick = share; $("img").onclick = saveImg; $("all").onclick = all;
+$("all-back").onclick = () => cur ? show("v-res") : show("v-intro");
+function route(){
+  const code = byK[location.hash.slice(1)];
+  if (code) result(code, code===myCode ? "mine" : "friend");
+}
+addEventListener("hashchange", route);
+route();
+</script>
+</body>
+</html>
